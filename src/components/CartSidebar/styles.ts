@@ -168,7 +168,7 @@ export const TotalPrice = styled.div`
   text-align: center;
 `
 
-export const CheckoutButton = styled.button`
+export const CheckoutButton = styled.button<{ $fullWidth?: boolean }>`
   background: ${cores.rosa};
   color: ${cores.branco};
   border: none;
@@ -177,8 +177,12 @@ export const CheckoutButton = styled.button`
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  width: 100%;
+  width: ${(props) => (props.$fullWidth ? '100%' : 'auto')};
   transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 
   &:hover {
     background: ${cores.rosaBotao};
@@ -347,6 +351,19 @@ export const InputGroup = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+  align-items: start;
+`
+export const PaymentFormContainer = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 export const ConfirmationStep = styled.div`

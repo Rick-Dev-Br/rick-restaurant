@@ -16,7 +16,7 @@ export const HeaderHome = styled.header`
   padding: 1rem;
 
   @media (max-width: 768px) {
-    padding: 0.5rem 1rem;
+    padding: 1.4rem 1rem;
     min-height: 100px;
   }
 `

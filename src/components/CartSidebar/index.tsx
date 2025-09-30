@@ -47,7 +47,6 @@ import {
   StepIndicator,
   Step,
   PaymentStep,
-  PaymentForm,
   CardInput,
   HalfInput,
   InputGroup,
@@ -61,6 +60,7 @@ import {
   ActionButtons,
   EditButton,
   ContinueButton,
+  PaymentFormContainer,
 } from './styles'
 
 const CartSidebar: React.FC = () => {
@@ -509,8 +509,9 @@ const CartSidebar: React.FC = () => {
                   Voltar
                 </BackButton>
               </StepHeader>
-
-              <PaymentForm>
+              <PaymentFormContainer>
+                {' '}
+                {/* ← Use o novo container aqui */}
                 <FormGroup>
                   <Label htmlFor="cardNumber">
                     Número do Cartão <Required>*</Required>
@@ -533,7 +534,6 @@ const CartSidebar: React.FC = () => {
                     <ErrorMessage>{paymentErrors.cardNumber}</ErrorMessage>
                   )}
                 </FormGroup>
-
                 <FormGroup>
                   <Label htmlFor="cardName">
                     Nome no Cartão <Required>*</Required>
@@ -552,7 +552,6 @@ const CartSidebar: React.FC = () => {
                     <ErrorMessage>{paymentErrors.cardName}</ErrorMessage>
                   )}
                 </FormGroup>
-
                 <InputGroup>
                   <FormGroup>
                     <Label htmlFor="expiryDate">
@@ -600,11 +599,10 @@ const CartSidebar: React.FC = () => {
                     )}
                   </FormGroup>
                 </InputGroup>
-              </PaymentForm>
-
+              </PaymentFormContainer>
               <SidebarFooter>
                 <TotalPrice>Total: R$ {getTotalPrice().toFixed(2)}</TotalPrice>
-                <CheckoutButton onClick={handlePlaceOrder}>
+                <CheckoutButton onClick={handlePlaceOrder} $fullWidth>
                   <FaCreditCard size={16} />
                   Finalizar Pedido
                 </CheckoutButton>
